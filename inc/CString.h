@@ -3,15 +3,16 @@
 
 # include	<sys/types.h>
 
+# define	CSTRING_SIZE_START	4
+
 typedef		struct
 {
   char*		str;
   size_t	size, tab_size;
 }		CString;
 
-# define	CSTRING_SIZE_START	4
-
 CString*	CString_create(char const*);
+CString*	CString_copy(CString*);
 char const*	CString_c_str(CString*);
 size_t		CString_size(CString*);
 CString*	CString_append(CString*, char const*);
