@@ -23,9 +23,8 @@ CString*	CString_append(CString* s, char const* str)
   if (sz >= s->tab_size && _realloc_str(s, sz))
     return NULL;
   s->size = sz;
-  if (tmp)
-    strcat(s->str, str);
-  else
-    strcpy(s->str, str);
+  if (!tmp)
+    s->str[0] = '\0';
+  strcat(s->str, str);
   return s;
 }
