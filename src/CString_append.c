@@ -17,14 +17,13 @@ static int	_realloc_str(CString* s, size_t sz)
 
 CString*	CString_append(CString* s, char const* str)
 {
-  size_t	tmp = s->size;
-  size_t	sz = tmp + strlen(str);
+  size_t	sz = s->size + strlen(str);
 
   if (sz >= s->tab_size && _realloc_str(s, sz))
     return NULL;
-  s->size = sz;
-  if (!tmp)
+  if (!s->size)
     s->str[0] = '\0';
   strcat(s->str, str);
+  s->size = sz;
   return s;
 }
