@@ -18,10 +18,10 @@ SRC		=	src/CString_append.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
-all		:	$(NAME)
-
 $(NAME)		:	$(OBJ)
 			ar rcs $(NAME) $(OBJ)
+
+all		:	$(NAME)
 
 clean		:
 			$(RM) $(OBJ)
