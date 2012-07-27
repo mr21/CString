@@ -1,7 +1,13 @@
 #include	"CString.h"
 
-CString*	CString_assign(CString* s, char const* str)
+CString*	CString_assign_chr(CString* str, char const* cpy)
 {
-  s->size = 0;
-  return CString_append(s, str);
+  str->size = 0;
+  return CString_append_chr(str, cpy);
+}
+
+CString*	CString_assign_str(CString* str, CString const* cpy)
+{
+  str->size = 0;
+  return CString_append_str(str, cpy);
 }

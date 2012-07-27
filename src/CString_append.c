@@ -15,15 +15,23 @@ static int	_realloc_str(CString* s, size_t sz)
   return 0;
 }
 
-CString*	CString_append(CString* s, char const* str)
+static CString*	append(CString* s, char const* chr, size_t sz_chr)
 {
-  size_t	sz = s->size + strlen(str);
+  size_t	sz = s->size + sz_chr;
 
   if (sz >= s->tab_size && _realloc_str(s, sz))
     return NULL;
-  if (!s->size)
-    s->str[0] = '\0';
-  strcat(s->str, str);
+  (!s->size ? strcpy : strcat)(s->str, chr);
   s->size = sz;
   return s;
+}
+
+CString*	CString_append_chr(CString* str, char const* cpy)
+{
+  return append(str, cpy, strlen(cpy));
+}
+
+CString*	CString_append_str(CString* str, CString const* cpy)
+{
+  return append(str, cpy->str, cpy->size);
 }
