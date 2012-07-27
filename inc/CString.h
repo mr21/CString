@@ -3,7 +3,7 @@
 
 # include	<sys/types.h>
 
-# define	CSTRING_SIZE_START	4
+# define	CSTRING_SIZE_START	16
 
 typedef		struct
 {
@@ -19,12 +19,15 @@ size_t		CString_capacity(CString const*);
 /* malloc & copy */
 CString*	CString_create_chr(char const*);
 CString*	CString_create_str(CString const*);
+int		CString_resize(CString*, size_t);
 
 /* = ; += */
 CString*	CString_assign_chr(CString*, char const*);
 CString*	CString_assign_str(CString*, CString const*);
 CString*	CString_append_chr(CString*, char const*);
 CString*	CString_append_str(CString*, CString const*);
+CString*	CString_insert_chr(CString*, char const*, unsigned n);
+CString*	CString_insert_str(CString*, CString const*, unsigned n);
 
 CString*	CString_epur(CString*);
 

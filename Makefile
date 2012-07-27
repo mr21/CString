@@ -15,6 +15,7 @@ SRC		=	src/CString_append.c	\
 			src/CString_destroy.c	\
 			src/CString_epur.c	\
 			src/CString_size.c	\
+			src/CString_resize.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
