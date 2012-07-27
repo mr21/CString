@@ -20,10 +20,10 @@ size_t		CString_capacity(CString const*);
 CString*	CString_create_chr(char const*);
 CString*	CString_create_str(CString const*);
 
-CString*	CString_append_chr(CString*, char const*);
-CString*	CString_append_str(CString*, CString const*);
 CString*	CString_assign_chr(CString*, char const*);
 CString*	CString_assign_str(CString*, CString const*);
+CString*	CString_append_chr(CString*, char const*);
+CString*	CString_append_str(CString*, CString const*);
 
 /* clean & free */
 void		CString_clear(CString*);
