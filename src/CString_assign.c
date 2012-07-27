@@ -1,23 +1,21 @@
+#include	<string.h>
 #include	"CString.h"
 
-static CString*	assign(CString* str, void const* cpy, int is_chr)
+static CString*	assign(CString* s, char const* cpy, size_t sz)
 {
-  size_t	tmp = str->size;
-
-  str->size = 0;
-  if (( is_chr && CString_append_chr(str, cpy)) ||
-      (!is_chr && CString_append_str(str, cpy)))
-    return str;
-  str->size = tmp;
-  return str;
+  if (sz >= s->tab_size && CString_resize(s, sz))
+    return NULL;
+  strcpy(s->str, cpy);
+  s->size = sz;
+  return s;
 }
 
-CString*	CString_assign_chr(CString* str, char const* cpy)
+CString*	CString_assign_chr(CString* s, char const* cpy)
 {
-  return assign(str, cpy, 1);
+  return assign(s, cpy, strlen(cpy));
 }
 
-CString*	CString_assign_str(CString* str, CString const* cpy)
+CString*	CString_assign_str(CString* s, CString const* cpy)
 {
-  return assign(str, cpy, 0);
+  return assign(s, cpy->str, cpy->size);
 }
