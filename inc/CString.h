@@ -26,8 +26,8 @@ CString*	CString_assign_chr(CString*, char const*);
 CString*	CString_assign_str(CString*, CString const*);
 CString*	CString_append_chr(CString*, char const*);
 CString*	CString_append_str(CString*, CString const*);
-CString*	CString_insert_chr(CString*, char const*, unsigned n);
-CString*	CString_insert_str(CString*, CString const*, unsigned n);
+CString*	CString_insert_chr(CString*, char const*, size_t);
+CString*	CString_insert_str(CString*, CString const*, size_t);
 
 CString*	CString_epur(CString*);
 
