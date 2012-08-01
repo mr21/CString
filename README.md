@@ -22,9 +22,9 @@ Exemple :
     CString_destroy(str);
     }
 
-__Pourquoi trouve t-on *_chr* en préfix à chaque fonction ?__  
-Pour préciser qu'il s'agit d'une chaîne de caractère en C et non d'un CString.  
-*_chr* doit être remplacer par *_str* pour pouvoir passer un CString au lieu d'un simple char*.  
+__Pourquoi trouve t-on le suffixe : *_chr* à chaque fonction ?__  
+Pour préciser qu'il s'agit d'une chaîne de caractère C et non d'un CString.  
+*_chr* doit être remplacer par *_str* pour pouvoir passer un CString en paramètre.  
 
 Deuxième exemple :  
 
