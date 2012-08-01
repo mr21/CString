@@ -23,10 +23,10 @@ Exemple :
     }
 
 __Pourquoi trouve t-on le suffixe : *_chr* à chaque fonction ?__  
-Pour préciser qu'il s'agit d'une chaîne de caractère C et non d'un CString.  
-*_chr* doit être remplacer par *_str* pour pouvoir passer un CString en paramètre.  
+Pour préciser qu'il s'agit d'une "chaîne de caractère C" et non d'un *CString*.  
+*_chr* doit être remplacé par *_str* pour pouvoir passer un *CString* en paramètre.  
 
-Deuxième exemple :  
+Un deuxième exemple s'impose :  
 
     {
     CString*  str1;
