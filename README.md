@@ -1,11 +1,12 @@
 CString
 =======
 
-Surcouchons nos char_étoile !  
+*Surcouchons nos **char_étoile** !*  
 
 
 Exemple :  
 
+    {
     CString*  str;
                                             /* size / capacity - [c_str()]                    */
     str = CString_create_chr("Trinity");    /*    7 / 16 - [Trinity]                          */
@@ -19,3 +20,29 @@ Exemple :
     CString_append_chr(str, "@+");          /*    2 / 64 - [@+]                               */
     
     CString_destroy(str);
+    }
+
+*Pourquoi trouve t-on **_chr** en préfix à chaque fonction ?*  
+Pour préciser qu'il s'agit d'une chaîne de caractère en C et non d'un CString.  
+**_chr** doit être remplacer par **_str** pour pouvoir passer un CString au lieu d'un simple char*.  
+
+Deuxième exemple :  
+
+    {
+    CString*  str1;
+    CString*  str2;
+
+    str1 = CString_create_chr("Oracle");    /*    6 / 16 - [Oracle]                           */
+    str2 = CString_create_str(str1);        /*    6 / 16 - [Oracle]                           */
+
+    CString_assign_chr(str1, "Neo");        /*    3 / 16 - [Neo]                              */
+    CString_append_str(str2, str1);         /*    9 / 16 - [OracleNeo]                        */
+    CString_assign_chr(str1, " & ");        /*    3 / 16 - [ & ]                              */
+    CString_insert_str(str2, str1, 6);      /*   12 / 16 - [Oracle & Neo]                     */
+
+    CString_destroy(str1);
+    CString_destroy(str2);
+    }
+
+Enjoy <3
+Je vous aime toussa toussa
