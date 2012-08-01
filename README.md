@@ -44,5 +44,5 @@ Un deuxième exemple s'impose :
     CString_destroy(str2);
     }
 
-Enjoy <3
+Enjoy <3  
 Je vous aime toussa toussa
