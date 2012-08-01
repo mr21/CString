@@ -1,7 +1,7 @@
 CString
 =======
 
-*Surcouchons nos **char_étoile** !*  
+__Surcouchons nos *char_étoile* !__  
 
 
 Exemple :  
@@ -22,9 +22,9 @@ Exemple :
     CString_destroy(str);
     }
 
-*Pourquoi trouve t-on **_chr** en préfix à chaque fonction ?*  
+__Pourquoi trouve t-on *_chr* en préfix à chaque fonction ?__  
 Pour préciser qu'il s'agit d'une chaîne de caractère en C et non d'un CString.  
-**_chr** doit être remplacer par **_str** pour pouvoir passer un CString au lieu d'un simple char*.  
+*_chr* doit être remplacer par *_str* pour pouvoir passer un CString au lieu d'un simple char*.  
 
 Deuxième exemple :  
 
