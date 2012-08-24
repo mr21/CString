@@ -1,29 +1,21 @@
-#include	<stdlib.h>
 #include	<string.h>
 #include	"CString.h"
 
-static int	_realloc_str(CString* s, size_t sz)
+static CString*	append(CString* s, char const* chr, size_t sz)
 {
-  size_t	sz2 = s->tab_size ? s->tab_size : CSTRING_SIZE_START;
-  char*		tmp;
-
-  sz2 *= (sz + 1) / sz2 + 1;
-  if (!(tmp = realloc(s->str, sz2)))
-    return -1;
-  s->str = tmp;
-  s->tab_size = sz2;
-  return 0;
-}
-
-CString*	CString_append(CString* s, char const* str)
-{
-  size_t	sz = s->size + strlen(str);
-
-  if (sz >= s->tab_size && _realloc_str(s, sz))
+  if (sz >= s->tab_size && CString_resize(s, sz))
     return NULL;
-  if (!s->size)
-    s->str[0] = '\0';
-  strcat(s->str, str);
+  (!s->size ? strcpy : strcat)(s->str, chr);
   s->size = sz;
   return s;
+}
+
+CString*	CString_append_chr(CString* s, char const* cpy)
+{
+  return append(s, cpy, s->size + strlen(cpy));
+}
+
+CString*	CString_append_str(CString* s, CString const* cpy)
+{
+  return append(s, cpy->str, s->size + cpy->size);
 }

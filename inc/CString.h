@@ -3,7 +3,7 @@
 
 # include	<sys/types.h>
 
-# define	CSTRING_SIZE_START	4
+# define	CSTRING_SIZE_START	16
 
 typedef		struct
 {
@@ -11,13 +11,27 @@ typedef		struct
   size_t	size, tab_size;
 }		CString;
 
-CString*	CString_create(char const*);
-CString*	CString_copy(CString*);
-char const*	CString_c_str(CString*);
-size_t		CString_size(CString*);
-size_t		CString_capacity(CString*);
-CString*	CString_append(CString*, char const*);
-CString*	CString_assign(CString*, char const*);
+/* Getters */
+char const*	CString_c_str(CString const*);
+size_t		CString_size(CString const*);
+size_t		CString_capacity(CString const*);
+
+/* malloc & copy */
+CString*	CString_create_chr(char const*);
+CString*	CString_create_str(CString const*);
+int		CString_resize(CString*, size_t);
+
+/* = ; += */
+CString*	CString_assign_chr(CString*, char const*);
+CString*	CString_assign_str(CString*, CString const*);
+CString*	CString_append_chr(CString*, char const*);
+CString*	CString_append_str(CString*, CString const*);
+CString*	CString_insert_chr(CString*, char const*, size_t);
+CString*	CString_insert_str(CString*, CString const*, size_t);
+
+CString*	CString_epur(CString*);
+
+/* clean & free */
 void		CString_clear(CString*);
 void		CString_destroy(CString*);
 
